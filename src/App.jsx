@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Auth from "./auth/Auth";
 import axios from "axios";
-import { motion } from "framer-motion";
 
 const App = () => {
   const navigate = useNavigate();
@@ -62,13 +61,9 @@ const App = () => {
       <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4">
         {isUser ? (
           caption.map((cap, index) => (
-            <motion.div
+            <div
               key={index}
               className="p-5 rounded shadow-[0_0_2px_#aaa] mb-5 bg-[#151414]"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.2, delay: index * 0.01 }}
-              whileHover={{ scale: 1.05 }}
             >
               <img
                 src={cap?.image}
@@ -76,7 +71,7 @@ const App = () => {
                 className="w-full aspect-square object-cover rounded"
               />
               <p className="mt-2 text-sm">{cap?.caption}</p>
-            </motion.div>
+            </div>
           ))
         ) : (
           <Auth isUser={isUser} setIsUser={setIsUser} />

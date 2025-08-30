@@ -79,22 +79,12 @@ const Profile = () => {
   return (
     <div className="min-h-screen relative p-5 sm:p-10 lg:px-15 max-w-8xl mx-auto">
       {/* Username top-left */}
-      <motion.h1
-        initial={{ x: -40, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        className="lg:text-xl font-bold mb-6 drop-shadow-lg"
-      >
+      <h1 className="lg:text-xl font-bold mb-6 drop-shadow-lg">
         {`Hi, ${user}`}
-      </motion.h1>
+      </h1>
 
       {/* Upload Box */}
-      <motion.div
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        className="bg-[#151414] rounded-2xl  shadow-[0_0_2px_#aaa] p-8 max-w-xl mx-auto my-12 lg:my-20"
-      >
+      <div className="bg-[#151414] rounded-2xl  shadow-[0_0_2px_#aaa] p-8 max-w-xl mx-auto my-12 lg:my-20">
         <h2 className="text-lg font-semibold mb-6 text-center drop-shadow-md">
           ✨ Auto Caption
         </h2>
@@ -135,33 +125,25 @@ const Profile = () => {
           />
 
           {/* Create Post Button */}
-          <motion.button
-            whileTap={{ scale: 0.95 }}
-            whileHover={{ scale: 1.02 }}
+          <button
             className="w-full bg-indigo-600 hover:bg-indigo-700 px-6 py-3 rounded-xl font-semibold shadow-lg transition-all"
             type="submit"
           >
             Create Post
-          </motion.button>
+          </button>
         </form>
-      </motion.div>
+      </div>
 
       {/* My Posts */}
-      <motion.div
-        initial={{ y: 30, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7 }}
-        className="relative mb-20"
-      >
+      <div className="relative mb-20">
         <h2 className="text-lg font-semibold mb-6">My Posts</h2>
         {myPosts.length === 0 ? (
           <p className="text-gray-400 text-center">No posts yet.</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {myPosts.map((post) => (
-              <motion.div
+              <div
                 key={post._id}
-                whileHover={{ scale: 1.03 }}
                 className="p-5 rounded mb-5 shadow-[0_0_2px_#aaa] bg-[#151414]"
               >
                 {post.image && (
@@ -172,11 +154,11 @@ const Profile = () => {
                   />
                 )}
                 <p className="mt-2 text-sm">{post.caption}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         )}
-      </motion.div>
+      </div>
     </div>
   );
 };
